@@ -2,6 +2,7 @@ import { FormField } from "../../components/FormField/FormField";
 import { useFormFiller } from "../../hooks/useFormFiller";
 import Loader from "../../components/Loader/Loader";
 import css from "./FormView.module.css";
+import { SEO } from "../../components/SEO/SEO";
 
 export function FormView() {
   const { form, isLoading, error, isSubmitting, answers, errors, actions } =
@@ -19,6 +20,8 @@ export function FormView() {
 
   return (
     <div className={css.container}>
+      <SEO title={form.title} description={form.description} />
+
       <div className={css.headerCard}>
         <h1 className={css.title}>{form.title}</h1>
         {form.description && (

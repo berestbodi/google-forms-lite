@@ -1,6 +1,7 @@
 import Loader from "../../components/Loader/Loader";
 import { QuestionCard } from "../../components/QuestionCard/QuestionCard";
 import { useFormEditor } from "../../hooks/useFormEditor";
+import { SEO } from "../../components/SEO/SEO";
 import css from "./FormBuilder.module.css";
 
 export function FormBuilder() {
@@ -8,6 +9,8 @@ export function FormBuilder() {
 
   return (
     <div className={css.container}>
+      <SEO title={state.title || "Нова форма"} />
+
       <div className={css.headerCard}>
         <input
           className={css.titleInput}

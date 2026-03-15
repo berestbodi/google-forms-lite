@@ -2,6 +2,7 @@ import { ResponseItem } from "../../components/ResponseItem/ResponseItem";
 import { useFormResponses } from "../../hooks/useFormResponses";
 import Loader from "../../components/Loader/Loader";
 import styles from "./FormResponses.module.css";
+import { SEO } from "../../components/SEO/SEO";
 
 export function FormResponses() {
   const { form, responses, isLoading } = useFormResponses();
@@ -18,6 +19,8 @@ export function FormResponses() {
 
   return (
     <div className={styles.container}>
+      <SEO title={`Відповіді (${responses.length}): ${form.title}`} />
+
       <header className={styles.header}>
         <h1 className={styles.title}>Відповіді: {form.title}</h1>
         <div className={styles.stats}>

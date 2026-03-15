@@ -20,6 +20,9 @@
   },
   "dependencies": {
     "@apollo/server": "^5.4.0",
-    "graphql": "^16.13.1"
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "graphql": "^16.13.1",
+    "react-helmet-async": "^3.0.0"
   }
 }

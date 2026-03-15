@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
-import styles from "./HomePage.module.css";
+import css from "./HomePage.module.css";
 import { useFormsList } from "../../hooks/useFormsList";
 import { FormCard } from "../../components/FormCard/FormCard";
 import Loader from "../../components/Loader/Loader";
+import { SEO } from "../../components/SEO/SEO";
 
 export function HomePage() {
   const { forms, isLoading, isDeleting, handleDelete } = useFormsList();
 
   if (isLoading) {
     return (
-      <div className={styles.container}>
-        <div className={styles.loaderWrapper}>
+      <div className={css.container}>
+        <div className={css.loaderWrapper}>
           <Loader />
         </div>
       </div>
@@ -18,17 +19,19 @@ export function HomePage() {
   }
 
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
+    <div className={css.container}>
+      <SEO title={"Мої форми"} />
+
+      <header className={css.header}>
         <h1>Мої форми</h1>
         <Link to="/forms/new">
-          <button className={styles.createBtn}>+ Створити форму</button>
+          <button className={css.createBtn}>+ Створити форму</button>
         </Link>
       </header>
 
-      <div className={styles.grid}>
+      <div className={css.grid}>
         {forms.length === 0 ? (
-          <p className={styles.emptyText}>У вас поки немає створених форм.</p>
+          <p className={css.emptyText}>У вас поки немає створених форм.</p>
         ) : (
           forms.map((form) => (
             <FormCard
