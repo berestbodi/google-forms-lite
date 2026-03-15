@@ -48,7 +48,7 @@ You can launch the entire ecosystem with a single command from the root director
 1. **Clone the repository:**
 
 ```bash
-git clone <your-repository-url>
+git clone git@github.com:berestbodi/google-forms-lite.git
 cd google-forms-clone
 
 ```
