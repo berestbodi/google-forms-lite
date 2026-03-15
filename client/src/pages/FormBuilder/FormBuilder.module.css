@@ -1,0 +1,130 @@
+.container {
+  padding: 16px 12px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.headerCard {
+  background: white;
+  padding: 16px;
+  border-top: 8px solid #673ab7;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin-bottom: 12px;
+}
+
+.titleInput {
+  font-size: 24px;
+  width: 100%;
+  margin-bottom: 8px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+}
+
+.titleInput:focus {
+  border-bottom: 2px solid #673ab7;
+}
+
+.descriptionInput {
+  width: 100%;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  outline: none;
+  color: #666;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 16px;
+  width: 100%;
+  z-index: 10;
+  border-top: 1px solid #dadce0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.primaryBtn,
+.secondaryBtn {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.primaryBtn {
+  background-color: #673ab7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: #673ab7;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 30px 20px;
+    max-width: 720px;
+  }
+
+  .headerCard {
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .titleInput {
+    font-size: 28px;
+  }
+
+  .controls {
+    flex-direction: row;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+    bottom: 20px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: auto;
+    height: auto;
+    padding: 10px 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 770px;
+    padding: 40px 0;
+  }
+
+  .titleInput {
+    font-size: 32px;
+  }
+
+  .headerCard {
+    border-top-width: 10px;
+  }
+
+  .controls {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}

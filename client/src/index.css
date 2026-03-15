@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0ebf8;
+  color: #202124;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.iziToast {
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  border: none !important;
+  min-height: 56px !important;
+  width: calc(100% - 24px) !important;
+  margin: 12px auto !important;
+}
+
+.iziToast-color-green {
+  background: #79a87c !important;
+  color: white !important;
+}
+
+.iziToast-color-red {
+  background: #d93025 !important;
+  color: white !important;
+}
+
+.iziToast-color-yellow {
+  background: #f9ab00 !important;
+  color: white !important;
+}
+
+.iziToast-texts strong {
+  font-family: inherit !important;
+  font-weight: 600 !important;
+}
+
+.iziToast-message {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+
+.iziToast-buttons {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: 8px !important;
+}
+
+.iziToast-buttons button {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #673ab7 !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  padding: 10px 16px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  transition: background 0.2s !important;
+}
+
+@media (min-width: 768px) {
+  .iziToast {
+    width: 320px !important;
+    margin: 0 !important;
+  }
+
+  .iziToast-message {
+    font-size: 13px !important;
+  }
+
+  .iziToast-buttons {
+    margin-top: 0 !important;
+  }
+
+  .iziToast-buttons button {
+    background: transparent !important;
+    padding: 6px 12px !important;
+  }
+
+  .iziToast-buttons button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .iziToast {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+  }
+}

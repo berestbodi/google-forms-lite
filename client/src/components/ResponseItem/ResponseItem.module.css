@@ -1,0 +1,38 @@
+.responseCard {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.responseNumber {
+  font-weight: bold;
+  color: #673ab7;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.answerRow {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.questionTitle {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.answerValue {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.noAnswer {
+  color: #999;
+  font-style: italic;
+}

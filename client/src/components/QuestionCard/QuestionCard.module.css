@@ -1,0 +1,179 @@
+.card {
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+
+.card:focus-within {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: #673ab7;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.questionInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  background-color: #f1f3f4;
+  border-bottom: 2px solid transparent;
+  border-radius: 4px 4px 0 0;
+  outline: none;
+}
+
+.questionInput:focus {
+  background-color: #e8eaed;
+  border-bottom-color: #673ab7;
+}
+
+.row > :last-child {
+  width: 100%;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.marker {
+  color: #70757a;
+  font-size: 18px;
+  min-width: 20px;
+}
+
+.optionInput {
+  flex: 1;
+  padding: 8px 0;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  outline: none;
+}
+
+.optionBtnDelete {
+  background: none;
+  border: none;
+  color: #70757a;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.addOptionBtn {
+  width: fit-content;
+  padding: 10px 0;
+  color: #673ab7;
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.cardFooter {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #dadce0;
+}
+
+.footerActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.requiredToggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.requiredToggle input {
+  display: none;
+}
+
+.requiredText {
+  font-family: inherit;
+  color: #70757a;
+}
+
+.slider {
+  position: relative;
+  width: 36px;
+  height: 14px;
+  background-color: #bdc1c6;
+  border-radius: 14px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: -2px;
+  bottom: -3px;
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.requiredToggle input:checked + .slider {
+  background-color: #b39ddb;
+}
+.requiredToggle input:checked + .slider:before {
+  transform: translateX(20px);
+  background-color: #673ab7;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 24px;
+  }
+
+  .row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .row > :last-child {
+    width: 200px;
+  }
+
+  .optionRow {
+    gap: 12px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card:hover {
+    border-color: #dadce0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .optionBtnDelete {
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+
+  .optionBtnDelete:hover {
+    opacity: 1;
+    color: #d93025;
+  }
+}

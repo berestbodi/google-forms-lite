@@ -1,0 +1,123 @@
+.questionCard {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #dadce0;
+  margin-bottom: 12px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.errorCard {
+  border: 1px solid #d93025;
+}
+
+.questionTitle {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 16px;
+  color: #202124;
+  line-height: 1.4;
+}
+
+.required {
+  color: #d93025;
+}
+
+.errorText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d93025;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.errorIcon {
+  background-color: #d93025;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.textInput {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #dadce0;
+  padding: 12px 0;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+}
+
+.textInput:focus {
+  border-bottom: 2px solid #673ab7;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 15px;
+  color: #202124;
+}
+
+.optionLabel input[type="radio"],
+.optionLabel input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #673ab7;
+}
+
+@media (min-width: 768px) {
+  .questionCard {
+    padding: 24px;
+  }
+
+  .questionTitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .textInput {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  .optionLabel {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .optionLabel input[type="radio"],
+  .optionLabel input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .questionCard {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .questionCard:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+}
