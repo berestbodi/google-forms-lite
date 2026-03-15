@@ -113,12 +113,47 @@
   color: #70757a;
 }
 
+.footerActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+.deleteCardBtn {
+  background: none;
+  border: none;
+  color: #5f6368;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteCardBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #d93025;
+}
+
+.verticalDivider {
+  width: 1px;
+  height: 24px;
+  background-color: #dadce0;
+}
+
 .slider {
   position: relative;
   width: 36px;
   height: 14px;
   background-color: #bdc1c6;
   border-radius: 14px;
+  cursor: pointer;
 }
 
 .slider:before {

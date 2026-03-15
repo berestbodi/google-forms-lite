@@ -1,4 +1,3 @@
-import Loader from "../../components/Loader/Loader";
 import { QuestionCard } from "../../components/QuestionCard/QuestionCard";
 import { useFormEditor } from "../../hooks/useFormEditor";
 import { SEO } from "../../components/SEO/SEO";
@@ -26,34 +25,37 @@ export function FormBuilder() {
         />
       </div>
 
-      {state.questions.map((q, index) => (
-        <QuestionCard
-          key={index}
-          index={index}
-          question={q}
-          onUpdate={actions.updateQuestion}
-          onAddOption={actions.addOption}
-          onUpdateOption={actions.updateOption}
-          onRemoveOption={actions.removeOption}
-        />
-      ))}
+      <div className={css.questionsList}>
+        {state.questions.map((q, index) => (
+          <QuestionCard
+            key={index}
+            index={index}
+            question={q}
+            onUpdate={actions.updateQuestion}
+            onRemove={() => actions.removeQuestion(index)}
+            onAddOption={actions.addOption}
+            onUpdateOption={actions.updateOption}
+            onRemoveOption={actions.removeOption}
+          />
+        ))}
+      </div>
 
       <div className={css.controls}>
-        <button onClick={actions.addQuestion} className={css.secondaryBtn}>
-          Додати запитання
-        </button>
         <button
+          type="button"
+          onClick={actions.addQuestion}
+          className={css.secondaryBtn}
+        >
+          + Додати запитання
+        </button>
+
+        <button
+          type="button"
           onClick={actions.handleSave}
           disabled={state.isLoading}
           className={css.primaryBtn}
         >
-          {state.isLoading ? (
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Loader /> <span>Збереження...</span>
-            </div>
-          ) : (
-            "Опублікувати"
-          )}
+          {state.isLoading ? "Збереження..." : "Опублікувати"}
         </button>
       </div>
     </div>

@@ -17,10 +17,14 @@ export function useFormEditor() {
   const [questions, setQuestions] = useState<QuestionInput[]>([]);
 
   const addQuestion = () => {
-    setQuestions([
-      ...questions,
+    setQuestions((prev) => [
+      ...prev,
       { title: "", type: QuestionType.Text, required: false, options: [] },
     ]);
+  };
+
+  const removeQuestion = (index: number) => {
+    setQuestions((prev) => prev.filter((_, i) => i !== index));
   };
 
   const updateQuestion = (index: number, fields: Partial<QuestionInput>) => {
@@ -32,61 +36,68 @@ export function useFormEditor() {
   };
 
   const addOption = (qIndex: number) => {
-    const updated = [...questions];
-    const currentOptions = updated[qIndex].options || [];
-    updated[qIndex] = {
-      ...updated[qIndex],
-      options: [...currentOptions, `Варіант ${currentOptions.length + 1}`],
-    };
-    setQuestions(updated);
+    setQuestions((prev) => {
+      const updated = [...prev];
+      const currentOptions = updated[qIndex].options || [];
+      updated[qIndex] = {
+        ...updated[qIndex],
+        options: [...currentOptions, `Варіант ${currentOptions.length + 1}`],
+      };
+      return updated;
+    });
   };
 
   const updateOption = (qIndex: number, optIndex: number, value: string) => {
-    const updated = [...questions];
-    const options = [...(updated[qIndex].options || [])];
-    options[optIndex] = value;
-    updated[qIndex] = { ...updated[qIndex], options };
-    setQuestions(updated);
+    setQuestions((prev) => {
+      const updated = [...prev];
+      const options = [...(updated[qIndex].options || [])];
+      options[optIndex] = value;
+      updated[qIndex] = { ...updated[qIndex], options };
+      return updated;
+    });
   };
 
   const removeOption = (qIndex: number, optIndex: number) => {
-    const updated = [...questions];
-    const options = (updated[qIndex].options || []).filter(
-      (_, i) => i !== optIndex,
-    );
-    updated[qIndex] = { ...updated[qIndex], options };
-    setQuestions(updated);
+    setQuestions((prev) => {
+      const updated = [...prev];
+      const options = (updated[qIndex].options || []).filter(
+        (_, i) => i !== optIndex,
+      );
+      updated[qIndex] = { ...updated[qIndex], options };
+      return updated;
+    });
   };
 
   const handleSave = async () => {
     if (!title.trim()) {
-      iziToast.warning({
-        title: "Увага",
-        message: "Будь ласка, введіть назву форми",
-      });
+      iziToast.warning({ title: "Увага", message: "Введіть назву форми" });
+      return;
+    }
+
+    if (questions.length === 0) {
+      iziToast.warning({ title: "Увага", message: "Додайте запитання" });
       return;
     }
 
     try {
+      const formattedQuestions = questions.map((q) => ({
+        ...q,
+        title: q.title.trim() || "Без назви",
+        options: q.options || [],
+      }));
+
       await createForm({
-        title,
-        description,
-        questions: questions.map((q) => ({
-          ...q,
-          title: q.title || "Без назви",
-        })),
+        title: title.trim(),
+        description: description.trim(),
+        questions: formattedQuestions,
       }).unwrap();
 
-      iziToast.success({
-        title: "Успіх",
-        message: "Форму опубліковано успішно!",
-      });
-
+      iziToast.success({ title: "Успіх", message: "Форму опубліковано!" });
       navigate("/");
     } catch {
       iziToast.error({
         title: "Помилка",
-        message: "Не вдалося зберегти форму. Спробуйте ще раз.",
+        message: "Не вдалося зберегти. Перевірте з'єднання.",
       });
     }
   };
@@ -97,6 +108,7 @@ export function useFormEditor() {
       setTitle,
       setDescription,
       addQuestion,
+      removeQuestion,
       updateQuestion,
       addOption,
       updateOption,

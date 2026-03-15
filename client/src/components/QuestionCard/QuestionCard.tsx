@@ -6,6 +6,7 @@ interface Props {
   question: QuestionInput;
   index: number;
   onUpdate: (index: number, fields: Partial<QuestionInput>) => void;
+  onRemove: (index: number) => void;
   onAddOption: (index: number) => void;
   onUpdateOption: (qIndex: number, optIndex: number, val: string) => void;
   onRemoveOption: (qIndex: number, optIndex: number) => void;
@@ -15,6 +16,7 @@ export function QuestionCard({
   question,
   index,
   onUpdate,
+  onRemove,
   onAddOption,
   onUpdateOption,
   onRemoveOption,
@@ -71,6 +73,26 @@ export function QuestionCard({
       <div className={css.cardFooter}>
         <div className={css.divider} />
         <div className={css.footerActions}>
+          <button
+            className={css.deleteCardBtn}
+            onClick={() => onRemove(index)}
+            title="Видалити запитання"
+            type="button"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6" />
+            </svg>
+          </button>
+
+          <div className={css.verticalDivider} />
+
           <label className={css.requiredToggle}>
             <span className={css.requiredText}>Обов'язково</span>
             <input

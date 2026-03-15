@@ -51,13 +51,7 @@ export function FormView() {
           onClick={actions.handleSubmit}
           disabled={isSubmitting}
         >
-          {isSubmitting ? (
-            <div className={css.btnLoader}>
-              <span>Надсилання...</span>
-            </div>
-          ) : (
-            "Надіслати"
-          )}
+          {isSubmitting ? "Надсилання..." : "Надіслати"}
         </button>
 
         <button
