@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import { store } from "./store";
 import App from "./App";
 import "./index.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import StoreProvider from "./components/StoreProvider/StoreProvider";
 
 iziToast.settings({
   timeout: 4000,
@@ -18,8 +17,8 @@ iziToast.settings({
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Provider store={store}>
+    <StoreProvider>
       <App />
-    </Provider>
+    </StoreProvider>
   </React.StrictMode>,
 );
