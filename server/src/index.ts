@@ -42,21 +42,7 @@ interface Database {
 }
 
 const db: Database = {
-  forms: [
-    // {
-    //   id: "1",
-    //   title: "Перша форма",
-    //   description: "Тестова форма для перевірки",
-    //   questions: [
-    //     {
-    //       id: "q1",
-    //       title: "Як вас звати?",
-    //       type: QuestionType.TEXT,
-    //       required: true,
-    //     },
-    //   ],
-    // },
-  ],
+  forms: [],
   responses: [],
 };
 
