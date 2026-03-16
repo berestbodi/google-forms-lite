@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: sans-serif;
+  color: #3c4043;
+}
+
+.content {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+  max-width: 500px;
+  width: 90%;
+}
+
+.errorCode {
+  font-size: 120px;
+  font-weight: 700;
+  margin: 0;
+  color: #1a73e8; /* Синій колір */
+  line-height: 1;
+}
+
+.title {
+  font-size: 24px;
+  margin: 20px 0 10px;
+}
+
+.text {
+  font-size: 16px;
+  color: #5f6368;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.homeLink {
+  text-decoration: none;
+}

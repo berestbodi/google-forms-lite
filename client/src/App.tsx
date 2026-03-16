@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { FormBuilder } from "./pages/FormBuilder/FormBuilder";
 import { FormView } from "./pages/FormView/FormView";
 import { FormResponses } from "./pages/FormResponses/FormResponses";
+import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/forms/new" element={<FormBuilder />} />
           <Route path="/forms/:id/fill" element={<FormView />} />
           <Route path="/forms/:id/responses" element={<FormResponses />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
