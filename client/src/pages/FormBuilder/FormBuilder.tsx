@@ -2,6 +2,7 @@ import { QuestionCard } from "../../components/QuestionCard/QuestionCard";
 import { useFormEditor } from "../../hooks/useFormEditor";
 import { SEO } from "../../components/SEO/SEO";
 import css from "./FormBuilder.module.css";
+import { Button } from "../../components/Button/Button";
 
 export function FormBuilder() {
   const { state, actions } = useFormEditor();
@@ -41,22 +42,13 @@ export function FormBuilder() {
       </div>
 
       <div className={css.controls}>
-        <button
-          type="button"
-          onClick={actions.addQuestion}
-          className={css.secondaryBtn}
-        >
+        <Button variant="secondary" onClick={actions.addQuestion}>
           + Додати запитання
-        </button>
+        </Button>
 
-        <button
-          type="button"
-          onClick={actions.handleSave}
-          disabled={state.isLoading}
-          className={css.primaryBtn}
-        >
-          {state.isLoading ? "Збереження..." : "Опублікувати"}
-        </button>
+        <Button onClick={actions.handleSave} isLoading={state.isLoading}>
+          Опублікувати
+        </Button>
       </div>
     </div>
   );

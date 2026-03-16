@@ -3,6 +3,7 @@ import { useFormFiller } from "../../hooks/useFormFiller";
 import Loader from "../../components/Loader/Loader";
 import css from "./FormView.module.css";
 import { SEO } from "../../components/SEO/SEO";
+import { Button } from "../../components/Button/Button";
 
 export function FormView() {
   const { form, isLoading, error, isSubmitting, answers, errors, actions } =
@@ -46,20 +47,13 @@ export function FormView() {
       ))}
 
       <div className={css.footer}>
-        <button
-          className={css.submitBtn}
-          onClick={actions.handleSubmit}
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Надсилання..." : "Надіслати"}
-        </button>
+        <Button onClick={actions.handleSubmit} isLoading={isSubmitting}>
+          Надіслати
+        </Button>
 
-        <button
-          className={css.clearBtn}
-          onClick={() => window.location.reload()}
-        >
+        <Button variant="secondary" onClick={() => window.location.reload()}>
           Очистити форму
-        </button>
+        </Button>
       </div>
     </div>
   );

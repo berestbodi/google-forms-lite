@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Form } from "../../api/generated";
 import styles from "./FormCard.module.css";
+import { Button } from "../Button/Button";
 
 interface Props {
   form: Form;
@@ -19,14 +20,15 @@ export function FormCard({ form, onDelete, isDeleting }: Props) {
           )}
         </div>
 
-        <button
+        <Button
+          variant="ghost"
           className={styles.deleteBtn}
           onClick={() => onDelete(form.id)}
-          disabled={isDeleting}
+          isLoading={isDeleting}
           title="Видалити форму"
         >
           ✕
-        </button>
+        </Button>
       </div>
 
       <div className={styles.footer}>

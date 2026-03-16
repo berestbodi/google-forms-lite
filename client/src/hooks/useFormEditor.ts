@@ -24,7 +24,31 @@ export function useFormEditor() {
   };
 
   const removeQuestion = (index: number) => {
+    const questionToRestore = questions[index];
+
     setQuestions((prev) => prev.filter((_, i) => i !== index));
+
+    iziToast.show({
+      title: "Видалено",
+      message: "Запитання було видалено",
+      position: "bottomRight",
+      color: "dark",
+      timeout: 5000,
+      buttons: [
+        [
+          "<button><b>ВІДМІНИТИ</b></button>",
+          function (instance, toast) {
+            setQuestions((prev) => {
+              const restored = [...prev];
+              restored.splice(index, 0, questionToRestore);
+              return restored;
+            });
+            instance.hide({ transitionOut: "fadeOut" }, toast, "undo");
+          },
+          true,
+        ],
+      ],
+    });
   };
 
   const updateQuestion = (index: number, fields: Partial<QuestionInput>) => {

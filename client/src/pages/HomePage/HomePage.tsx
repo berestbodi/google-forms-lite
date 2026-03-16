@@ -24,8 +24,8 @@ export function HomePage() {
 
       <header className={css.header}>
         <h1>Мої форми</h1>
-        <Link to="/forms/new">
-          <button className={css.createBtn}>+ Створити форму</button>
+        <Link to="/forms/new" className={css.createBtn}>
+          + Створити форму
         </Link>
       </header>
 
